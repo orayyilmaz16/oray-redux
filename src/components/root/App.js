@@ -5,8 +5,9 @@ import DashBoard from './DashBoard';
 
 function App() {
   return (
-    <Container>
-      <Navi/>
+    <Container className='my-5'>
+      <Navi />
+      <pre className='my-5'></pre>
       <DashBoard />
     </Container>
   );

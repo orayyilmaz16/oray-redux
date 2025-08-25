@@ -28,7 +28,7 @@ export default class Navi extends React.Component{
     {
         return (
             <div>
-                <Navbar color='dark' fixed='top' className='w-100' dark expand='md'>
+                <Navbar color='dark' fixed='top'   dark expand='md'>
                     <NavbarBrand href="/">ReduxReact.Js</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
