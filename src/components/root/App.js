@@ -1,10 +1,14 @@
 import React from 'react';
+import { Container } from 'reactstrap';
+import Navi from '../navi/Navi';
+import DashBoard from './DashBoard';
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <Container>
+      <Navi/>
+      <DashBoard />
+    </Container>
   );
 }
 
