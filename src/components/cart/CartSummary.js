@@ -7,17 +7,26 @@ import {
   NavItem,
   NavLink,
   Badge,
+  NavbarText,
 } from "reactstrap";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as cartAction from "../../redux/actions/cartAction";
+import { Link } from "react-router-dom";
 import alertify from "alertifyjs";
 
 class CartSummary extends Component {
+  removeFromCart(product) {
+    this.props.actions.removeFromCart(product);
+    alertify.error(product.productName + " has been deleted.");
+  }
+
   renderEmpty() {
     return (
       <NavItem>
-        <NavLink href="/">Empty Card</NavLink>
+        <NavLink disabled href="/">
+          Empty Card
+        </NavLink>
       </NavItem>
     );
   }
@@ -34,22 +43,27 @@ class CartSummary extends Component {
               <Badge
                 color="danger"
                 onClick={() =>
-                  this.props.actions.removeFromCart(cartItem.product)}>Delete</Badge> <t />                  
-                   {cartItem.product.productName} <t></t>
+                  this.removeFromCart(cartItem.product)
+                }
+              >
+                Delete
+              </Badge>{" "}
+              <t />
+              {cartItem.product.productName} <t></t>
               <Badge color="success">{cartItem.quantity}</Badge>
             </DropdownItem>
-            
           ))}
-          
 
           <DropdownItem divider />
-          <DropdownItem>Go to cart</DropdownItem>
+          <DropdownItem>
+            <Link className="text-decoration-none" to={"/cart"}>
+              Go to cart
+            </Link>
+          </DropdownItem>
         </DropdownMenu>
       </UncontrolledDropdown>
     );
   }
-
-  
 
   render() {
     return (
@@ -74,4 +88,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CartSummary);
+export default connect(mapStateToProps, mapDispatchToProps)(CartSummary);
