@@ -5,10 +5,13 @@ import {
   Navbar,
   NavbarToggler,
   NavbarBrand,
+  NavItem,
+  NavLink,
   Nav,
 
- 
 } from 'reactstrap';
+import {Link} from "react-router-dom";
+
 
 export default class Navi extends React.Component{
     constructor(props){
@@ -33,6 +36,11 @@ export default class Navi extends React.Component{
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className='me-auto top' navbar>
+                                <NavItem>
+                                    <NavLink>
+                                       <Link className='text-decoration-none ' style={{color: 'white'}} to="/">Add Product</Link>
+                                    </NavLink>
+                                </NavItem>
                             </Nav>
                         </Collapse>
                     </Navbar>
