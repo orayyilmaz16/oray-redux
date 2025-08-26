@@ -11,6 +11,7 @@ import {
 
 } from 'reactstrap';
 import {Link} from "react-router-dom";
+import CartSummary from '../cart/CartSummary';
 
 
 export default class Navi extends React.Component{
@@ -41,6 +42,7 @@ export default class Navi extends React.Component{
                                        <Link className='text-decoration-none ' style={{color: 'white'}} to="/">Add Product</Link>
                                     </NavLink>
                                 </NavItem>
+                                <CartSummary />
                             </Nav>
                         </Collapse>
                     </Navbar>
